@@ -4,8 +4,7 @@ let computerScore = 0;
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
-
+// function to find winner for a single round
 function playRound(humanChoice, computerChoice) {
   // sanitize the user input
   humanChoice = humanChoice.toLowerCase();
@@ -39,6 +38,7 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
+// function to generate computer choice
 function getComputerChoice() {
   let choice = Math.floor(Math.random() * 3);
   switch (choice) {
@@ -53,6 +53,7 @@ function getComputerChoice() {
   }
 }
 
+// function to receive player's choice
 function getHumanChoice() {
   let choice = prompt("Enter rock/paper/scissors: ");
   
