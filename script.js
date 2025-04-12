@@ -1,4 +1,4 @@
-playGame();
+// playGame();
 
 // function to play 5 rounds of the game and declare final winner
 function playGame() {
@@ -15,40 +15,6 @@ function playGame() {
   }
 
   finalWinner(humanScore, computerScore);
-
-  // function to find winner for a single round
-  function playRound(humanChoice, computerChoice) {
-    // sanitize the user input
-    humanChoice = humanChoice.toLowerCase();
-    
-    // create flag for user's win or loss assuming default loss
-    let flag = 0;
-  
-    // game logic assuming cases for user's win
-    if (humanChoice === "rock" && computerChoice === "scissors") {
-      flag = 1;
-    } else if (humanChoice === "paper" && computerChoice === "rock") {
-      flag = 1;
-    } else if (humanChoice === "scissors" && computerChoice === "paper") {
-      flag = 1;
-    } else if (humanChoice === computerChoice) {
-      flag = 2;
-    }
-  
-    // if user lose the round
-    if (flag === 0) {
-      console.log(`You lost this round! ${computerChoice} beats ${humanChoice}`);
-      computerScore++;
-    }
-    // if user won the round 
-    else if (flag === 1) {
-      console.log(`You won this round! ${humanChoice} beats ${computerChoice}`);
-      humanScore++;
-    // if user had a tie
-    } else if (flag === 2) {
-      console.log(`This round is a tie. Both of you chose ${humanChoice}`);
-    }
-  }
 }  
 
 // function to find the final winner
@@ -117,3 +83,32 @@ function playRound(humanChoice, computerChoice) {
     return `This round is a tie. Both of you chose ${humanChoice}`;
   }
 }
+
+// event listeners
+
+// Single Round between User and Computer
+const choices = document.querySelector('.choices');
+const roundResults = document.querySelector('.results ul');
+choices.addEventListener('click', (e) => {
+  // get human, computer choices and result of match
+  let humanChoice = e.target.innerText;
+  let computerChoice = getComputerChoice();
+  let round = playRound(humanChoice, computerChoice);
+  
+  // display the choices, result in html
+  // choices
+  const liChoice = document.createElement('li');
+  const liChoiceText = document.createTextNode(`Human: ${humanChoice}, Computer: ${computerChoice}`);
+  liChoice.appendChild(liChoiceText);
+  
+  // round result
+  const roundResult = document.createElement('ul');
+  const liRound = document.createElement('li');
+  const liRoundText = document.createTextNode(round);
+  liRound.appendChild(liRoundText);
+  roundResult.appendChild(liRound);
+  
+  // append them into html
+  roundResults.appendChild(liChoice);
+  roundResults.appendChild(roundResult);
+});
