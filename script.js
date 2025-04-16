@@ -133,10 +133,10 @@ choices.addEventListener('click', (e) => {
 // watch for 5 wins
 function watchScoreBoard(humanScore, computerScore) {
   const status = document.querySelector('.status');
-  if (humanScore.textContent === 5) {
-    const textNode = document.createTextNode('`You Won The Game!`');
+  if (humanScore.textContent === '5') {
+    const textNode = document.createTextNode(`You Won The Game!`);
     status.appendChild(textNode);
-  } else if (computerScore.textContent === 5) {
+  } else if (computerScore.textContent === '5') {
     const textNode = document.createTextNode(`You Lose The Game!`);
     status.appendChild(textNode);
   }
