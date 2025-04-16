@@ -15,9 +15,6 @@ function getComputerChoice() {
 
 // function to find winner for a single round
 function playRound(humanChoice, computerChoice) {
-  // sanitize the user input
-  humanChoice = humanChoice.toLowerCase();
-  
   // create flag for user's win or loss assuming default loss
   let flag = 0;
 
@@ -86,6 +83,8 @@ choices.addEventListener('click', (e) => {
   let computerChoice = getComputerChoice();
   let round = playRound(humanChoice, computerChoice);
   
+// sanitize the user input
+  humanChoice = humanChoice.toLowerCase();
   // display the choices, result in html
   displayResult(humanChoice, computerChoice, round[0]);
 
