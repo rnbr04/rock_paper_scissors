@@ -72,6 +72,54 @@ function watchScoreBoard(humanScore, computerScore) {
   }
 }
 
+// display choice images on left and right side
+function displayImage(humanChoice, computerChoice) {
+  imageLeft = document.createElement('img');
+  imageRight = document.createElement('img');
+  switch (humanChoice) {
+    case 'rock':
+      imageLeft.src = './assets/rock.png';
+      break;
+    case 'paper':
+      imageLeft.src = './assets/paper.png';
+      break;
+    case 'scissors':
+      imageLeft.src = './assets/scissors.png';
+      break;
+  }
+  switch (computerChoice) {
+    case 'rock':
+      imageRight.src = './assets/rock.png';
+      break;
+    case 'paper':
+      imageRight.src = './assets/paper.png';
+      break;
+    case 'scissors':
+      imageRight.src = './assets/scissors.png';
+      break;
+  }
+  imageLeft.style.width = "256px";
+  imageLeft.style.height = "256px";
+  imageRight.style.width = "256px";
+  imageRight.style.height = "256px";
+  try {
+    humanChoiceImage.removeChild(humanChoiceImage.firstElementChild);
+    humanChoiceImage.appendChild(imageLeft);
+  } catch (e) {
+    humanChoiceImage.appendChild(imageLeft);
+  }
+  try {
+    computerChoiceImage.removeChild(computerChoiceImage.firstElementChild);
+    computerChoiceImage.appendChild(imageRight);
+  } catch (e) {
+    computerChoiceImage.appendChild(imageRight);
+  }
+  console.log(humanChoice);
+  console.log(imageLeft);
+  console.log(computerChoice);
+  console.log(imageRight);
+}
+
 // EVENT LISTENERS
 
 // Single Round between User and Computer
@@ -89,7 +137,7 @@ choices.addEventListener('click', (e) => {
   let computerChoice = getComputerChoice();
   let round = playRound(humanChoice, computerChoice);
   
-// sanitize the user input
+  // sanitize the user input
   humanChoice = humanChoice.toLowerCase();
   // display the choices, result in html
   // displayResult(humanChoice, computerChoice, round[0]);
