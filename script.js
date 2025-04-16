@@ -64,6 +64,17 @@ function displayResult(humanChoice, computerChoice, round) {
   roundResults.appendChild(roundResult);
 }
 
+// watch for 5 wins
+function watchScoreBoard(humanScore, computerScore) {
+  if (humanScore.textContent === '5') {
+    const textNode = document.createTextNode(`You Won The Game!`);
+    gameScore.appendChild(textNode);
+  } else if (computerScore.textContent === '5') {
+    const textNode = document.createTextNode(`You Lose The Game!`);
+    gameScore.appendChild(textNode);
+  }
+}
+
 // EVENT LISTENERS
 
 // Single Round between User and Computer
@@ -93,16 +104,5 @@ choices.addEventListener('click', (e) => {
   watchScoreBoard(humanScore, computerScore);
 });
 
-// watch for 5 wins
-function watchScoreBoard(humanScore, computerScore) {
-  const status = document.querySelector('.status');
-  if (humanScore.textContent === '5') {
-    const textNode = document.createTextNode(`You Won The Game!`);
-    status.appendChild(textNode);
-  } else if (computerScore.textContent === '5') {
-    const textNode = document.createTextNode(`You Lose The Game!`);
-    status.appendChild(textNode);
-  }
-}
 
 
