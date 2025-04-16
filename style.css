@@ -15,6 +15,18 @@ body {
   min-height: 100vh;
   background-color: bisque;
   display: flex;
+}
+
+.sidebar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-container {
+  flex: 1;
+  display: flex;
   flex-flow: column;
   align-items: center;
   justify-content: center;

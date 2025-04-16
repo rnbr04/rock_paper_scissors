@@ -8,24 +8,28 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- options for user -->
-  <div>Choose between following options:</div>
-  <div class="choices">
-    <button>Rock</button>
-    <button>Paper</button>
-    <button>Scissors</button>
+  <div class="sidebar left"></div>
+  <div class="game-container">
+    <!-- options for user -->
+    <div>Choose between following options:</div>
+    <div class="choices">
+      <button>Rock</button>
+      <button>Paper</button>
+      <button>Scissors</button>
+    </div>
+    <!-- SCORE BOARD -->
+    <div class="score-board">
+      <div class="human-score">0</div>
+      <div class="computer-score">0</div>
+    </div>
+    <!-- Final Game Status -->
+    <div class="status"></div>
+    <!-- result of each round in a list -->
+    <div class="results">
+      Round results:
+      <ul></ul>
+    </div>
   </div>
-  <!-- SCORE BOARD -->
-  <div class="score-board">
-    <div class="human-score">0</div>
-    <div class="computer-score">0</div>
-  </div>
-  <!-- Final Game Status -->
-  <div class="status"></div>
-  <!-- result of each round in a list -->
-  <div class="results">
-    Round results:
-    <ul></ul>
-  </div>
+  <div class="sidebar right"></div>
 </body>
 </html>
