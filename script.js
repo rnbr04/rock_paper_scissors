@@ -77,6 +77,12 @@ function watchScoreBoard(humanScore, computerScore) {
 // Single Round between User and Computer
 const choices = document.querySelector('.choices');
 const roundResults = document.querySelector('.results ul');
+const humanScore = document.querySelector('.human-score');
+const computerScore = document.querySelector('.computer-score');
+const gameScore = document.querySelector('.status');
+const humanChoiceImage = document.querySelector('.sidebar.left');
+const computerChoiceImage = document.querySelector('.sidebar.right');
+
 choices.addEventListener('click', (e) => {
   // get human, computer choices and result of match
   let humanChoice = e.target.innerText;
@@ -86,11 +92,9 @@ choices.addEventListener('click', (e) => {
 // sanitize the user input
   humanChoice = humanChoice.toLowerCase();
   // display the choices, result in html
-  displayResult(humanChoice, computerChoice, round[0]);
-
+  // displayResult(humanChoice, computerChoice, round[0]);
+  displayImage(humanChoice, computerChoice);
   // update the score board
-  const humanScore = document.querySelector('.human-score');
-  const computerScore = document.querySelector('.computer-score');
   // user won
   if (round[1] === 1) {
     humanScore.textContent = +humanScore.textContent + 1;
@@ -99,7 +103,6 @@ choices.addEventListener('click', (e) => {
   else if (round[1] === -1) {
     computerScore.textContent = +computerScore.textContent + 1;
   }
-
   watchScoreBoard(humanScore, computerScore);
 });
 
