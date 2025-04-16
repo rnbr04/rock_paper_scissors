@@ -1,33 +1,3 @@
-// playGame();
-
-// function to play 5 rounds of the game and declare final winner
-function playGame() {
-  // declare score variables
-  let humanScore = 0;
-  let computerScore = 0;
-
-  // play the game for 5 rounds
-  for (let i = 0; i < 5; i++) {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-
-    playRound(humanSelection, computerSelection);
-  }
-
-  finalWinner(humanScore, computerScore);
-}  
-
-// function to find the final winner
-function finalWinner(humanScore, computerScore) {
-  if (humanScore > computerScore) {
-    console.log("You won the game!");
-  } else if (humanScore < computerScore) {
-    console.log("You lose the game!");
-  } else {
-    console.log("It's a tie!")
-  }
-}
-
 // function to generate computer choice
 function getComputerChoice() {
   let choice = Math.floor(Math.random() * 3);
@@ -41,13 +11,6 @@ function getComputerChoice() {
     case 2:
       return "scissors";
   }
-}
-
-// function to receive player's choice
-function getHumanChoice() {
-  let choice = prompt("Enter rock/paper/scissors: ");
-  
-  return choice;
 }
 
 // function to find winner for a single round
