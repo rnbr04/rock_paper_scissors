@@ -16,6 +16,9 @@ body {
   background-color: bisque;
   display: flex;
   font-size: 30px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  display: flex;
+  justify-content: space-between;
 }
 
 .sidebar {
@@ -38,9 +41,18 @@ body {
   margin-bottom: 50%;
 }
 
-.game-container {
-  font-weight: bold;
+/* MIDDLE CONTAINER */
+.main {
   flex: 2;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+/* Game Buttons, ScoreBoard, Status */
+.game-container {
+  flex: 2;
+  font-weight: bold;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -100,4 +112,28 @@ body {
   width: 300px;
   justify-content: center;
   align-items: center;
+}
+
+/* flaticon attributes */
+.attributes {
+  background-color:teal;
+  color: lightyellow;
+  padding: 0px 10px;
+  display: flex;
+  flex-flow: column;
+  font-size: 20px;
+  justify-content: center;
+}
+
+.attributes ul {
+  list-style: none;
+}
+
+.attributes a {
+  text-decoration: none;
+  color: lightyellow;
+}
+
+.attributes a:hover {
+  text-decoration: underline;
 }
