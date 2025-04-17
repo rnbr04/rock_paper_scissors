@@ -42,25 +42,6 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-// display result for each round
-function displayResult(humanChoice, computerChoice, round) {
-  // choices
-  const liChoice = document.createElement('li');
-  const liChoiceText = document.createTextNode(`Human: ${humanChoice}, Computer: ${computerChoice}`);
-  liChoice.appendChild(liChoiceText);
-  
-  // round result
-  const roundResult = document.createElement('ul');
-  const liRound = document.createElement('li');
-  const liRoundText = document.createTextNode(round);
-  liRound.appendChild(liRoundText);
-  roundResult.appendChild(liRound);
-  
-  // append them into html
-  roundResults.appendChild(liChoice);
-  roundResults.appendChild(roundResult);
-}
-
 // watch for 5 wins
 function watchScoreBoard(humanScore, computerScore, listener) {
   if (humanScore.textContent === '5') {
@@ -121,8 +102,6 @@ choices.addEventListener('click', function playGame(e) {
   let computerChoice = getComputerChoice();
   let round = playRound(humanChoice, computerChoice);
   
-  // display the choices, result in html
-  // displayResult(humanChoice, computerChoice, round[0]);
   displayImage(humanChoice, computerChoice);
   // update the score board
   // user won
