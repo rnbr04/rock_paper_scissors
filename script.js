@@ -62,11 +62,13 @@ function displayResult(humanChoice, computerChoice, round) {
 }
 
 // watch for 5 wins
-function watchScoreBoard(humanScore, computerScore) {
+function watchScoreBoard(humanScore, computerScore, listener) {
   if (humanScore.textContent === '5') {
+    choices.removeEventListener('click', listener);
     const textNode = document.createTextNode(`You Won The Game!`);
     gameScore.appendChild(textNode);
   } else if (computerScore.textContent === '5') {
+    choices.removeEventListener('click', listener);
     const textNode = document.createTextNode(`You Lose The Game!`);
     gameScore.appendChild(textNode);
   }
@@ -111,7 +113,7 @@ const computerChoiceImage = document.querySelector('.sidebar.right');
 const imageLeft = document.querySelector('.sidebar.left img');
 const imageRight = document.querySelector('.sidebar.right img');
 
-choices.addEventListener('click', (e) => {
+choices.addEventListener('click', function playGame(e) {
   // get human, computer choices and result of match
   let humanChoice = e.target.innerText;
   // sanitize the user input
@@ -131,5 +133,5 @@ choices.addEventListener('click', (e) => {
   else if (round[1] === 0) {
     computerScore.textContent = +computerScore.textContent + 1;
   }
-  watchScoreBoard(humanScore, computerScore);
+  watchScoreBoard(humanScore, computerScore, playGame);
 });
