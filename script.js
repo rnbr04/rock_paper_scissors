@@ -134,11 +134,11 @@ const computerChoiceImage = document.querySelector('.sidebar.right');
 choices.addEventListener('click', (e) => {
   // get human, computer choices and result of match
   let humanChoice = e.target.innerText;
+  // sanitize the user input
+  humanChoice = humanChoice.toLowerCase();
   let computerChoice = getComputerChoice();
   let round = playRound(humanChoice, computerChoice);
   
-  // sanitize the user input
-  humanChoice = humanChoice.toLowerCase();
   // display the choices, result in html
   // displayResult(humanChoice, computerChoice, round[0]);
   displayImage(humanChoice, computerChoice);
