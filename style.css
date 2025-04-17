@@ -79,3 +79,6 @@ body {
   background-color: red;  
 }
 
+.status {
+  height: 16px;
+}
