@@ -40,9 +40,21 @@ body {
 .choices button {
   border: 2px solid rgb(120, 137, 54);
   border-radius: 10px;
+  box-shadow: 0 5px #aee491;
   width: 100px;
   padding: 10px 20px;
   background-color: beige;
+  transition-duration: 0.4s;
+}
+
+.choices button:hover {
+  background-color: rgb(120, 137, 54);
+  color: white;
+}
+
+.choices button:active {
+  box-shadow: 0 0px #aee491;
+  transform: translateY(10px);
 }
 
 /* SCORE BOARD CSS */
