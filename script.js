@@ -31,14 +31,14 @@ function playRound(humanChoice, computerChoice) {
 
   // if user lose the round
   if (flag === 0) {
-    return [`You lost this round! ${computerChoice} beats ${humanChoice}`, -1];
+    return [`You lost this round! ${computerChoice} beats ${humanChoice}`, flag];
   }
   // if user won the round 
   else if (flag === 1) {
-    return [`You won this round! ${humanChoice} beats ${computerChoice}`, 1];
+    return [`You won this round! ${humanChoice} beats ${computerChoice}`, flag];
   // if user had a tie
   } else if (flag === 2) {
-    return [`This round is a tie. Both of you chose ${humanChoice}`, 0];
+    return [`This round is a tie. Both of you chose ${humanChoice}`, flag];
   }
 }
 
@@ -148,11 +148,8 @@ choices.addEventListener('click', (e) => {
     humanScore.textContent = +humanScore.textContent + 1;
   }
   // user lost 
-  else if (round[1] === -1) {
+  else if (round[1] === 0) {
     computerScore.textContent = +computerScore.textContent + 1;
   }
   watchScoreBoard(humanScore, computerScore);
 });
-
-
-
