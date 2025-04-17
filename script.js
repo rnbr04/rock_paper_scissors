@@ -74,8 +74,6 @@ function watchScoreBoard(humanScore, computerScore) {
 
 // display choice images on left and right side
 function displayImage(humanChoice, computerChoice) {
-  imageLeft = document.createElement('img');
-  imageRight = document.createElement('img');
   switch (humanChoice) {
     case 'rock':
       imageLeft.src = './assets/rock.png';
@@ -98,26 +96,6 @@ function displayImage(humanChoice, computerChoice) {
       imageRight.src = './assets/scissors.png';
       break;
   }
-  imageLeft.style.width = "256px";
-  imageLeft.style.height = "256px";
-  imageRight.style.width = "256px";
-  imageRight.style.height = "256px";
-  try {
-    humanChoiceImage.removeChild(humanChoiceImage.firstElementChild);
-    humanChoiceImage.appendChild(imageLeft);
-  } catch (e) {
-    humanChoiceImage.appendChild(imageLeft);
-  }
-  try {
-    computerChoiceImage.removeChild(computerChoiceImage.firstElementChild);
-    computerChoiceImage.appendChild(imageRight);
-  } catch (e) {
-    computerChoiceImage.appendChild(imageRight);
-  }
-  console.log(humanChoice);
-  console.log(imageLeft);
-  console.log(computerChoice);
-  console.log(imageRight);
 }
 
 // EVENT LISTENERS
@@ -130,6 +108,8 @@ const computerScore = document.querySelector('.computer-score');
 const gameScore = document.querySelector('.status');
 const humanChoiceImage = document.querySelector('.sidebar.left');
 const computerChoiceImage = document.querySelector('.sidebar.right');
+const imageLeft = document.querySelector('.sidebar.left img');
+const imageRight = document.querySelector('.sidebar.right img');
 
 choices.addEventListener('click', (e) => {
   // get human, computer choices and result of match
