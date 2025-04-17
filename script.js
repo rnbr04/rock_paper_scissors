@@ -48,10 +48,14 @@ function watchScoreBoard(humanScore, computerScore, listener) {
     choices.removeEventListener('click', listener);
     const textNode = document.createTextNode(`You Won The Game!`);
     gameScore.appendChild(textNode);
+    gameScore.style.backgroundColor = 'skyblue';
+    gameScore.style.color = 'lightyellow';
   } else if (computerScore.textContent === '5') {
     choices.removeEventListener('click', listener);
     const textNode = document.createTextNode(`You Lose The Game!`);
     gameScore.appendChild(textNode);
+    gameScore.style.backgroundColor = 'red';
+    gameScore.style.color = 'lightyellow';
   }
 }
 
